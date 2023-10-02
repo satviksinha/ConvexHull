@@ -57,9 +57,9 @@ The time complexity of the algorithm is O(n^2). This is because, in the outer fo
 
 We can use Euler's formula for a 3-D polyhedron to prove this. According to the Euler's formula:
 V-E+F=2 where,
-V = number of vertices
-E = number of edges
-F = number of faces
+- `V` = number of vertices
+- `E` = number of edges
+- `F` = number of faces
 
 Since we have divided the polyhedron into triangles, we have E = 3F/2 since each face has 3 edges, and each edge gets counted twice. Plugging the relation into the formula we get,
 V - F/2 = 2 => F = 2V-4
