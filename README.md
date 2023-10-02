@@ -49,7 +49,7 @@ The edges of the visible faces would have been marked true. When we iterate thro
 
 We store the faces which are part of the convex hull in a vector and at last, isolate the vertices from the faces and remove the duplicates in the process.
 
-# Time Complexity O(n^2)
+# Time Complexity 
 
 n = number of vertices
 The time complexity of the algorithm is O(n^2). This is because, in the outer for loop, we iterate n times making it an O(n) operation. Within the for loop we iterate over all the faces. If we can prove that the number of faces is of the order O(n), then we are done.
@@ -64,7 +64,7 @@ Since we have divided the polyhedron into triangles, we have E = 3F/2 since each
 V - F/2 = 2 => F = 2V-4
 Hence, we have proved that the number of faces is O(n) and the time complexity is O(n^2)
 
-# Space Complecity O(n^2)
+# Space Complexity 
 
 The space complexity is O(n^2) because the largest data structure used is a 2-d vector of size n^2 which stores whether the edge between two vertices is a part of a horizon
 
