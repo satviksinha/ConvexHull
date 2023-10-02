@@ -6,7 +6,7 @@
 - `Convex Hull`: The smallest convex polygon enclosing a given set of points
 
 ## Assumptions
-* We assume that points are non-coplanar
+* Not all points are co-planar
 
 ## Algorithm
 
