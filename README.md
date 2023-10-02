@@ -11,25 +11,27 @@
 ## Algorithm
 
 This algorithm is an extension of the incremental algorithm used for defining the convex hull of a set of points in the two-dimensional plane.
-In the 2-D case, we assume that we have already determined the convex hull of the first i-1 points. Now, when we reach the ith point, we form a new convex polygon by following these steps:
+In the 2-D case, we start by assuming that we have already determined the convex hull of the first i-1 points. Now, when we encounter the ith point, we form a new convex polygon by following these steps:
 1. Mark the edges that are visible from the ith point
 2. Remove those edges
-3. Connect new edges to the new point from the remaining points to form a new convex hull
+3. Connect new edges to our desired point from the area where edges have been removed to form a new convex hull
 
 <img src="./incremental.jpg" />
 
-Note- We are considering the face of the polyhedron as a triangle because any polygon can be broken down into several triangles.
-
-The 3-D case is just an extension of the 2-D algorithm. We assume we have a convex polyhedron for the first i-1 points. Now when we counter the ith point, we remove the faces visible to the point rather than the edges. We perform the following steps:
+The 3-D case is just an extension of the 2-D algorithm. We assume we have formed a convex polyhedron for the first i-1 points. Now, when we counter the ith point, we remove the `faces` visible to the point rather than the `edges`. We perform the following steps:
 1. Mark the faces visible from the ith point
 2. Remove those faces from the convex hull
 3. Add new faces from the ith point to the edges lying on the horizon
 
-We have to understand some things in greater detail.
+`Note`- We are considering the face of the polyhedron in the shape of a triangle because any polygon can be broken down into several triangles.
+
+A detailed explanation follows for understanding key aspects.
 
 ### Visibility of a face from a point
 
-In order to check if a face is visible from a point or not, we create a vector from any point on the face(for simplicity we consider a vertex of the face) to our point. We then take the dot product of this vector with the outward pointing normal to the face. If the dot product is positive, it means the normal vector is directed towards the point and the face is visible. On the contrary, if the dot product is negative, it means the normal is pointing away from the point and the face is not visible.
+In order to check if a face is visible from a point or not, we create a vector from any point on the face(for simplicity we consider a vertex of the face) to our point. We then take the dot product of this vector with the outward pointing normal to the face.
+
+If the dot product is positive, it means the normal vector is directed towards the point and the face is visible. On the contrary, if the dot product is negative, it means the normal is pointing away from the point and the face is not visible.
 
 ### Edges on the Horizon
 
@@ -45,7 +47,7 @@ After removing the visible faces, new faces are added between each edge from the
 
 ### How do we get to know the edges that are a part of the horizon?
 
-The edges of the visible faces would have been marked true. When we iterate through the invisible faces, if some edge has been marked true in the opposite direction, it implies that it is a part of some visible face. This implies, that edge has an adjacent visible as well as invisible face and hence lies on the horizon.
+The edges of the visible faces have been marked true. When we iterate through the invisible faces, if some edge has been marked true in the reverse direction, it implies that the edge is a part of some visible face. This means that the edge has, an adjacent visible as well as an invisible face, and hence that edge lies on the horizon.
 
 We store the faces which are part of the convex hull in a vector and at last, isolate the vertices from the faces and remove the duplicates in the process.
 
@@ -61,7 +63,7 @@ V-E+F=2 where,
 - `E` = number of edges
 - `F` = number of faces
 
-Since we have divided the polyhedron into triangles, we have E = 3F/2 since each face has 3 edges, and each edge gets counted twice. Plugging the relation into the formula we get,
+Since we have divided the polyhedron into triangles, we have E = 3F/2. This is because each face has 3 edges, and each edge gets counted twice. Plugging the relation into the formula we get,
 V - F/2 = 2 => F = 2V-4
 Hence, we have proved that the number of faces is O(n) and the time complexity is O(n^2)
 
