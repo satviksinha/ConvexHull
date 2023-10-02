@@ -34,9 +34,9 @@ In order to check if a face is visible from a point or not, we create a vector f
 ### Edges on the Horizon
 
 We talk about creating faces from each edge in the horzizon to the point being considered.
-<img src="horizon1.png" width="600px"/>
+<img src="horizon1.png" width="100px"/>
 The horizon is the boundary formed the edges of the faces invisible to the point being considered. Since, we only remove the visible faces from the convex hull, the invisible faces remain intact.
-<img src="horizon2.png" width="600px"/>
+<img src="horizon2.png" width="100px"/>
 After removing the visible faces, new faces are added between each edge from the horizon and the point to ensure that all points lie inside the newly created convex hull.
 
 ### How do we get to know the edges which are a part of the horizon?
