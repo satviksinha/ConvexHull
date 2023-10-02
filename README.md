@@ -52,6 +52,7 @@ We store the faces which are part of the convex hull in a vector and at last, is
 # Time Complexity 
 
 n = number of vertices
+
 The time complexity of the algorithm is O(n^2). This is because, in the outer for loop, we iterate n times making it an O(n) operation. Within the for loop we iterate over all the faces. If we can prove that the number of faces is of the order O(n), then we are done.
 
 We can use Euler's formula for a 3-D polyhedron to prove this. According to the Euler's formula:
