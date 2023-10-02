@@ -2,8 +2,8 @@
 
 ## Definitions
 
-- `Convex Polygon` (label -> Convex Polygon): A polygon with all its interior angles less than 180 degrees
-- `Convex Hull` (label -> Convex Hull): The smallest convex polygon enclosing a given set of points
+- `Convex Polygon`: A polygon with all its interior angles less than 180 degrees
+- `Convex Hull`: The smallest convex polygon enclosing a given set of points
 
 ## Assumptions
 * We assume that points are non-coplanar
